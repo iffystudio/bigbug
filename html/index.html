@@ -1,4 +1,8 @@
-<& /site/header.mas &>
+<!DOCTYPE html>
+<!-- produced by Iffy Studio -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
     <meta content="Introducing Big Bug." property="og:description">
     <meta content="https://bigbug.iffy.studio/img/og/big_bug.png" property="og:image">
     <meta content="640" property="og:image:height">
@@ -7,11 +11,7 @@
     <meta content="website" property="og:type">
     <meta content="https://bigbug.iffy.studio/" property="og:url">
     <script src="//www.youtube.com/iframe_api"></script>
-% if ( $local ) {
-    <script src="/js/jquery-2.2.4.min.js"></script>
-% } else {
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-% }
     <style>
       body, h1, h2, li, p, ul { line-height: 1; margin: 0; padding: 0; }
 
@@ -105,4 +105,11 @@
 
       $( __init );
     </script>
-<& /site/footer.mas &>\
+    <script>
+      ( function ( i, s, o, g, r, a, m ) { i[ 'GoogleAnalyticsObject' ] = r; i[ r ] = i[ r ] || function () { ( i[ r ].q = i[ r ].q || [ ] ).push( arguments ) }, i[ r ].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[ 0 ]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) } )( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+
+      ga( 'create', 'UA-77115616-3', 'auto' );
+      ga( 'send', 'pageview' );
+    </script>
+  </body>
+</html>
