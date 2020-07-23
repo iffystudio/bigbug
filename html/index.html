@@ -1,0 +1,108 @@
+<& /site/header.mas &>
+    <meta content="Introducing Big Bug." property="og:description">
+    <meta content="https://bigbug.iffy.studio/img/og/big_bug.png" property="og:image">
+    <meta content="640" property="og:image:height">
+    <meta content="640" property="og:image:width">
+    <meta content="Big Bug" property="og:title">
+    <meta content="website" property="og:type">
+    <meta content="https://bigbug.iffy.studio/" property="og:url">
+    <script src="//www.youtube.com/iframe_api"></script>
+% if ( $local ) {
+    <script src="/js/jquery-2.2.4.min.js"></script>
+% } else {
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+% }
+    <style>
+      body, h1, h2, li, p, ul { line-height: 1; margin: 0; padding: 0; }
+
+      body, html { height: 100%; }
+
+      a { color: #000; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      body { background: #fff; color: #000; font-family: -apple-system, 'Helvetica Neue', 'Lucida Grande', sans-serif; font-size: 16px; font-weight: 200; opacity: 0; -moz-user-select: none; -webkit-user-select: none; }
+      h1 { font-size: 48px; padding-top: 30px; }
+      h2 { font-size: 32px; padding: 18px 0 4px; }
+      h1, h2 { font-weight: 100; }
+      iframe { border: 0; }
+      p { font-size: 72px; margin-top: 24px; }
+      p:first-of-type { position: relative; right: 6px; }
+      p:last-of-type { font-size: 48px; }
+
+      div.inner { margin: 0 auto; position: relative; width: 925px; }
+
+      div.youtube { float: right; height: 464px; overflow: hidden; position: relative; width: 258px; }
+      div.youtube iframe { margin-left: -82px; margin-top: -72px; }
+      div.youtube img { position: absolute; right: -1px; top: -1px; z-index: 668; }
+
+      h2 a:hover { text-decoration: none; }
+      h2 a:hover span { border-bottom: 1px solid #fff; }
+
+      #all { height: 100%; min-height: 630px; position: relative; }
+      #download { position: absolute; right: 0; top: 36px; }
+      #foot { background: #ccc; bottom: 0; box-sizing: border-box; left: 0; padding: 16px 0; position: absolute; right: 0; }
+      #head { height: 168px; }
+      #main { border-bottom: 1px solid #000; height: 522px; }
+
+      #foot, #foot a { color: #000; }
+      #foot li { border-right: 1px solid #000; display: inline; margin-right: 10px; padding-right: 10px; }
+      #foot li:last-child { border-width: 0; margin-right: 0; padding-right: 0; }
+      #foot ul { display: inline; }
+    </style>
+    <title>Big Bug</title>
+  </head>
+  <body>
+    <div id="all">
+      <div class="inner">
+        <div id="head">
+          <h1>Iffy Studio</h1>
+          <h2>Introducing Big Bug.</h2>
+          <a href="https://itunes.apple.com/us/app/big-bug/id1169370482" id="download"><img height="43" src="/img/download.svg" width="145"></a>
+        </div>
+        <div id="main">
+          <div class="youtube"><img height="524" src="/img/white.png" width="294"><div id="player"></div></div>
+          <p>Tap the big bug.</p>
+          <p>Faster is better.</p>
+        </div>
+      </div>
+      <div class="inner" style="bottom: 1px; position: relative;"><h2>Available now on iOS.</h2></div>
+      <div id="foot">
+        <div class="inner">© 2020 <a href="https://iffy.studio/">Iffy Studio</a></div>
+      </div>
+    </div>
+    <script>
+      var _player;
+
+      function onYouTubeIframeAPIReady() {
+        _player = new YT.Player( 'player', {
+          events: { onReady: __ready, onStateChange: __stateChange },
+          height: '608',
+          playerVars: { controls: 0, modestbranding: 0, rel: 0, showinfo: 0 },
+          videoId: 'UvOKPujEI8w',
+          width: '1080'
+          } );
+        }
+
+      function __ready( _event ) {
+        _event.target.mute();
+
+        _player.setPlaybackQuality( 'hd1080' );
+
+        _player.playVideo();
+        }
+
+      function __stateChange( _event ) {
+        if ( _event.data == YT.PlayerState.PLAYING ) {
+          $( 'div.youtube img' ).fadeOut( 1000 );
+          }
+        else if ( _event.data == YT.PlayerState.ENDED ) {
+          _player.playVideo();
+          }
+        }
+
+      function __init () {
+        $( 'body' ).fadeTo( 5000, 1 );
+        }
+
+      $( __init );
+    </script>
+<& /site/footer.mas &>\
